@@ -16,8 +16,10 @@ describe Todo do
     teardown_nulldb
   end
   
-  it "has no name" do
-    @it.name.must_be_nil
+  describe "before save" do
+    it "is invalid" do
+      @it.valid?.must_equal false
+    end
   end
 
 end
