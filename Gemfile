@@ -7,7 +7,6 @@ gem 'rails', '3.2.2'
 
 gem 'sqlite3'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -16,6 +15,14 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer'
+  gem 'minitest'
+  gem 'rr'
+  
+  gem 'activerecord-nulldb-adapter', :git => "git://github.com/nulldb/nulldb.git"
+  gem 'database_cleaner'
+  gem 'cucumber-rails'
+  gem 'timecop'
+  gem 'rspec'
 
   gem 'uglifier', '>= 1.0.3'
 end

@@ -1,3 +1,6 @@
+require_relative 'entity'
+require_relative '../repositories/todo'
+
 class Todo < Entity
   extend TodoRepository
   
