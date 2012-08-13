@@ -7,9 +7,7 @@ class TodoManager
   end
   
   def create_item todo_item
-    # We can use standard "repository" method, 
-    # but when doing something more complex we should create a method on the repository
-    todo = Todo.find_by_id(todo_item[:todo_id])
+    todo = Todo.get(todo_item[:todo_id])
     todo.items << Item.new(:name => todo_item[:name])
     todo.save
     todo
