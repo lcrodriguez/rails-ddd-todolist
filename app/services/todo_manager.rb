@@ -1,3 +1,10 @@
+# TodoManager service
+# ===================
+#
+# We delegate on a service the full responsabily of the task.
+# We avoid having any logic on the controller and assure we can isolated tests the manager.
+# We prefer to avoid class methods and force to instantiate the object as we could inject some other service needed.
+#
 class TodoManager
   
   def create todo

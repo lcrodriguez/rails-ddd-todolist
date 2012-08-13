@@ -1,11 +1,37 @@
-== DDD applied to rails with fast tests
+== DDD & OO architecture, applied to rails, with fast tests
 
-This is a sample application of a Rails application with a clear separating of layers, while still supporting 
-Active Record pattern usage.
+This is a sample application (Todo list) of a Rails application with a clear separating of layers, while still supporting Active Record pattern usage. I believe it's very important for a mature product and system to clearly communicate is intent on a layered architecture, being a no-brainer for a new developer to the project.
 
-We are inferring some internal rules. 
+We all know that Rails is about doing things fast, but we must learn to do the things maintainable, to avoid future headaches and allow the system to grow.
 
+== Layers
+
+We determined we need the following layers:
+
+Frontend
+
+- Views: Just show the information on the desired formats
+- Controllers: Interact with the screen and the services (BusinessLogic)
+- Presenters: You may setup a presenter facade if needed.
+
+Business
+
+- Services: A lot of the Business Logic resides here.
+- Models: PORO objects that although inherit from ActiveRecord:Base, the architecture allows to "decouple" logically.
+- Repositories: Modules injected into the models, that will contain any method need to communicate with the DB.
+
+This an architecture definition to build applications on Rails or any technology, unfortunately the ActiveRecord coupling is very high on Rails (with its benefits) so we can not fully decoupled for now.
 
 == References
 
-Some code based on @avdi book on Object on Rails which totally recommends to buy: http://objectsonrails.com/
+Some code is based and copied from @avdi book on Object on Rails which recommend to buy: http://objectsonrails.com/
+I've also found this articles and videos remarkable if DDD is not your background:
+
+- http://rubysource.com/ddd-for-rails-developers-part-1-layered-architecture/
+
+and finally the best conference ever see from Uncle Bob that will blow your mind:
+
+http://www.youtube.com/watch?v=WpkDN78P884
+
+Hope this helps,
+@lcrodriguez

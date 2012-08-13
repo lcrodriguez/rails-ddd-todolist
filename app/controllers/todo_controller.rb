@@ -1,3 +1,8 @@
+# TodoController
+# ====================
+# The controller are indeed very simple and I believe the testing effor makes no sense at all for now.
+# We avoid having any logic on the controller and this way we assure we can isolated tests the manager.
+#
 class TodoController < ApplicationController
   before_filter :initialize
   

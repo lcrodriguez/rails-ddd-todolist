@@ -18,11 +18,6 @@ class Entity < ActiveRecord::Base
                   ActiveRecord::QueryMethods,
                   :except => [Class, Object, :primary_key]
 
-  # Setup a default method to retrieve one by id record  
-  def self.get id
-    where(:id => id).first
-  end
-
   def self.method_missing name, *args
     if name.to_s =~ /^find_by_(.*)$/
       raise NoMethodError.new("#{name}", *args)
