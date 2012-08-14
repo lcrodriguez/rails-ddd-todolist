@@ -22,6 +22,15 @@ Business
 
 This an architecture definition to build applications on Rails or any technology, unfortunately the ActiveRecord coupling is very high on Rails (with its benefits) so we can not fully decoupled for now.
 
+
+== Sample
+
+This is a very simple sample calling Businnes Logic method from the TodoController. You can find sample links in the default index.html page.
+
+There is also a sample calling a Sidekiq background processed task to show how simple is to do it later on, without rewriting any code if we clearly separate our logic in several classes with Single Responsability Pattern.
+
+You may run the test suite from a rake task: rake unit
+
 == References
 
 Some code is based and copied from @avdi book on Object on Rails which recommend to buy: http://objectsonrails.com/

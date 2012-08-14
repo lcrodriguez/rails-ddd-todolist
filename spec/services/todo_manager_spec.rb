@@ -16,10 +16,12 @@ describe TodoManager do
 
   describe "can create todo list" do
     it "for the first time" do
-      todo = @it.create({ :name => "First Todo" })
+      name = "!@1312312!"
+
+      todo = @it.create(name)
 
       todo.wont_be_nil
-      todo.name.must_equal "First Todo"
+      todo.name.must_equal name
     end
 
     it "for the first time" do
