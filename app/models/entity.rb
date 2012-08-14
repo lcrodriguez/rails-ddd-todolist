@@ -9,6 +9,7 @@ class Entity < ActiveRecord::Base
   hide ActiveRecord::Base, :ancestors => true,
        :except => [Object, :init_with, :new_record?, :errors,
                    :valid?, :save, :save!, :record_timestamps,
+                   :attribute_present?, :marked_for_destruction?,
                    :"[]", :persisted?, :destroyed?, :[]=,
                    :skip_time_zone_conversion_for_attributes]
 

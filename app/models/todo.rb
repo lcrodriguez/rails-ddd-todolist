@@ -1,5 +1,5 @@
-#require_relative 'entity'
-require_relative '../repositories/todo_repository'
+require_relative "entity"
+require_relative "../repositories/todo_repository"
 
 class Todo < Entity
   
@@ -13,7 +13,7 @@ class Todo < Entity
   
   # Setup AR relationships as usual
   has_many :items
-  
+
   # Also validations and any other logic
   validates_presence_of :name
 end

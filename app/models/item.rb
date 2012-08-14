@@ -1,4 +1,4 @@
-#require_relative 'entity'
+require_relative "entity"
 
 # A item is a part of the Todo List.
 # We call Todo an aggregate root, and so, we should not have any way to retrieve items directly

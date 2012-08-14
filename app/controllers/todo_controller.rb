@@ -1,3 +1,6 @@
+require_relative "../models/todo"
+require_relative "../models/item"
+
 # TodoController
 # ====================
 # The controller are indeed very simple and I believe the testing effor makes no sense at all for now.

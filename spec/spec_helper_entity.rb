@@ -9,14 +9,27 @@ class Entity
   extend ActiveModel::Naming
   include ActiveModel::Conversion
   include ActiveModel::Validations
-  
-  def self.has_many *params
+
+  def self.create_method arg
+	method_name = (arg.to_s).to_sym
+
+    self.send :define_method, method_name do
+      puts arg
+    end
+
+    self.send(method_name, [])
   end
 
-  def self.has_and_belongs_to_many *params
+  def self.has_many name
+  	create_method name
+  end
+
+  def self.has_and_belongs_to_many name
+  	create_method arg
   end
   
-  def self.belongs_to *params
+  def self.belongs_to name
+  	create_method name
   end
   
 end

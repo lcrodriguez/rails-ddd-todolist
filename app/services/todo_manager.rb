@@ -1,3 +1,6 @@
+require_relative "../models/todo"
+require_relative "../models/item"
+
 # TodoManager service
 # ===================
 #
@@ -7,15 +10,20 @@
 #
 class TodoManager
   
-  def create todo
-    todo = Todo.new(:name => todo[:name])
+  def create params
+    todo = Todo.new
+    todo.name = params[:name]
     todo.save
     todo
   end
   
   def create_item todo_item
     todo = Todo.get(todo_item[:todo_id])
-    todo.items << Item.new(:name => todo_item[:name])
+
+    item = Item.new
+    item.name = todo_item[:name]
+
+    todo.items << item
     todo.save
     todo
   end
