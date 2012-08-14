@@ -10,9 +10,9 @@ require_relative "../models/item"
 #
 class TodoManager
   
-  def create params
+  def create name
     todo = Todo.new
-    todo.name = params[:name]
+    todo.name = name
     todo.save
     todo
   end

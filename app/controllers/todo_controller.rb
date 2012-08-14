@@ -10,10 +10,16 @@ class TodoController < ApplicationController
   before_filter :initialize
   
   def create
-    todo = @manager.create(params)
+    todo = @manager.create(params[:name])
     render :json => todo
   end
   
+  def create_offline
+    # Process through SideKick
+    TodoCreatorWorker.perform_async(params[:name])
+    render :json => "Enqueued!"
+  end
+
   def add_item
     todo = @manager.create_item(params)
     render :json => todo
