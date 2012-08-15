@@ -11,17 +11,26 @@ We determined we need the following layers:
 Frontend
 
 - Views: Just show the information on the desired formats
+
 - Controllers: Interact with the screen and the services (BusinessLogic)
+
 - Presenters: You may setup a presenter facade if needed.
 
 Business
 
 - Services: A lot of the Business Logic resides here.
-- Models: PORO objects that although inherit from ActiveRecord:Base, the architecture allows to "decouple" logically.
-- Repositories: Modules injected into the models, that will contain any method need to communicate with the DB.
 
-This an architecture definition to build applications on Rails or any technology, unfortunately the ActiveRecord coupling is very high on Rails (with its benefits) so we can not fully decoupled for now.
+- Models: PORO objects that although inherit from ActiveRecord:Base, the architecture allows to "decouple" logically. There is another option which is to manage ActiveRecord objects as Repository directly, totally splitting logic and model. We will also cover that in one case, just to check for advantages/disadvantages (TBD).
 
+- Repositories: Modules injected into the models, that will contain any method need to communicate with the DB. Again, to support current ActiveRecord and to avoid initial complexity we manage it with modules.
+
+This an architecture definition to build applications on Rails or any technology, unfortunately the ActiveRecord coupling is very high on Rails (with its benefits) so we can not simply decouple it. (Rails 4?)
+
+== ActiveRecord Rules
+
+We should avoid using hooks. We should not depend on hooks for our business logic. All our business logic should be on the services or model based logic.
+
+We will avoid the "chaos" having clearly defined logic on services and model and maintain logic free controller which indeed is not necessary.
 
 == Sample
 
